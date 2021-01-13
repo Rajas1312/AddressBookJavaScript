@@ -1,9 +1,30 @@
 [
   {
-    "firstName": "",
-    "lastName": "ads",
-    "city": "ads",
-    "state": "asda",
-    "zip": "ads"
+    "firstName": "adarsh",
+    "lastName": "chaudhary",
+    "city": "darbhanga",
+    "state": "bihar",
+    "zip": "400017"
+  },
+  {
+    "firstName": "shivam",
+    "lastName": "pandey",
+    "city": "jaun pur",
+    "state": "uttarpradesh",
+    "zip": "400017"
+  },
+  {
+    "firstName": "rajas",
+    "lastName": "dongre",
+    "city": "mumbai",
+    "state": "maharashtra",
+    "zip": "400092"
+  },
+  {
+    "firstName": "baban",
+    "lastName": "joshi",
+    "city": "nainital",
+    "state": "uttarakhand",
+    "zip": "880091"
   }
 ]
