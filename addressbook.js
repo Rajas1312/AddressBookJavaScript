@@ -98,8 +98,37 @@ class AddressBook{
                 console.log(person)
                   fs.writeFileSync('person.json',JSON.stringify(person,null,2));
             }
-
-        }   
+        } 
+        findcontats=()=>{
+            let rawdata = fs.readFileSync('person.json');
+            let person = JSON.parse(rawdata,JSON.stringify(file,null,2));
+            console.log("find entries by 1.firstName 2.city 3.state 4.zip")
+            let options=readLine.question("Enter your option ")
+            if(options=="1"){
+                let firstName=readLine.question("Enter firstName ")
+                for(let i=0;i<person.length;i++){
+                    if(person[i].firstName==firstName){
+                        console.log(person[i])
+                    }
+                }
+            }
+            if(options=="2"){
+                let city=readLine.question("Enter city ")
+                for(let i=0;i<person.length;i++){
+                    if(person[i].city==city){
+                        console.log(person[i])
+                    }
+                }
+            }
+            if(options=="3"){
+                let state=readLine.question("Enter state ")
+                for(let i=0;i<person.length;i++){
+                    if(person[i].state==state){
+                        console.log(person[i])
+                    }
+                }
+            }
+        }  
     }
 module.exports=new AddressBook();
     

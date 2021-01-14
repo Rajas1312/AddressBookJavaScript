@@ -1,16 +1,23 @@
 [
   {
+    "firstName": "asfa",
+    "lastName": "faf",
+    "city": "mumbai",
+    "state": "ads",
+    "zip": "asf"
+  },
+  {
+    "firstName": "aakif",
+    "lastName": "sayed",
+    "city": "surat",
+    "state": "gujrat",
+    "zip": "900092"
+  },
+  {
     "firstName": "adarsh",
     "lastName": "chaudhary",
     "city": "darbhanga",
     "state": "bihar",
-    "zip": "400017"
-  },
-  {
-    "firstName": "shivam",
-    "lastName": "pandey",
-    "city": "jaun pur",
-    "state": "uttarpradesh",
     "zip": "400017"
   },
   {
@@ -21,10 +28,10 @@
     "zip": "400092"
   },
   {
-    "firstName": "baban",
-    "lastName": "joshi",
-    "city": "nainital",
-    "state": "uttarakhand",
-    "zip": "880091"
+    "firstName": "shivam",
+    "lastName": "pandey",
+    "city": "jaun pur",
+    "state": "uttarpradesh",
+    "zip": "400017"
   }
 ]
