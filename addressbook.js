@@ -5,11 +5,11 @@ const name_pattern="^[A-Z]{1}[a-z]{2,}$";
 const zip_pattern="^[0-9]{6}$";
 class AddressBook{
     addPerson=()=>{
-        let firstName=this.checkIfFirstNameIsValid();
-        let lastName=this.checkIfLastNameIsValid();
-        let city=this.checkIfCityNameIsValid();
-        let state=this.checkIfStateNameIsValid();
-        let zip=this.checkIfZipIsValid();
+        let firstName=this.checkIfFirstNameIsValid()//readLine.question("Enter first name "));
+        let lastName=this.checkIfLastNameIsValid()//readLine.question("Enter last name "));
+        let city=this.checkIfCityNameIsValid()//readLine.question("Enter city "));
+        let state=this.checkIfStateNameIsValid()//readLine.question("Enter state "));
+        let zip=this.checkIfZipIsValid()//readLine.question("Enter zip code "));
         let person = {
             "person":[{
                 firstName:firstName,//this.checkIfFirstNameIsValid(),
@@ -32,7 +32,7 @@ class AddressBook{
         editContats=()=>{
             let rawdata = fs.readFileSync('person.json');
             let person = JSON.parse(rawdata,JSON.stringify(file,null,2));
-            let firstname=this.checkIfFirstNameIsValid()//readLine.question("Enter first name ")
+            let firstname=this.checkIfFirstNameIsValid()//readLine.question("Enter first name "))
             for(let i=0;i<person.length;i++){
                 if(person[i].firstName==firstname){
                     console.log(person[i])
@@ -40,19 +40,19 @@ class AddressBook{
                     let option=readLine.question("choose a option ")
                     switch(option){
                         case "1":
-                            person[i].lastName= this.checkIfLastNameIsValid()//readLine.question("enter last name ")
+                            person[i].lastName= this.checkIfLastNameIsValid()//readLine.question("Enter last name "))
                             fs.writeFileSync('person.json',JSON.stringify(person,null,2));
                             break;
                         case "2":
-                            person[i].city= this.checkIfCityNameIsValid()//readLine.question("enter city ")
+                            person[i].city= this.checkIfCityNameIsValid()//readLine.question("enter city "))
                             fs.writeFileSync('person.json',JSON.stringify(person,null,2));
                             break;
                         case "3":
-                            person[i].state= this.checkIfStateNameIsValid()//readLine.question("enter state ")
+                            person[i].state= this.checkIfStateNameIsValid()//readLine.question("enter state "))
                             fs.writeFileSync('person.json',JSON.stringify(person,null,2));
                             break;
                         case "4":
-                            person[i].zip=this.checkIfZipIsValid()//readLine.question("Enter zipode ") 
+                            person[i].zip=this.checkIfZipIsValid()//readLine.question("Enter zipode ")) 
                             fs.writeFileSync('person.json',JSON.stringify(person,null,2));
                             break;
                         default:
@@ -66,7 +66,7 @@ class AddressBook{
         deleteElements=()=>{
             let rawdata = fs.readFileSync('person.json');
             let person = JSON.parse(rawdata,JSON.stringify(file,null,2));
-            let firstname=readLine.question("Enter first name ")
+            let firstname=this.checkIfFirstNameIsValid()//readLine.question("Enter first name "))
             for(let i=0;i<person.length;i++){
                 if(person[i].firstName==firstname){
                     person.splice(i,1)
@@ -130,7 +130,7 @@ class AddressBook{
             console.log("find entries by 1.firstName 2.city 3.state 4.zip")
             let options=readLine.question("Enter your option ")
             if(options=="1"){
-                let firstName=this.checkIfFirstNameIsValid()//readLine.question("Enter firstName ")
+                let firstName=this.checkIfFirstNameIsValid()//readLine.question("Enter firstName "))
                 for(let i=0;i<person.length;i++){
                     if(person[i].firstName==firstName){
                         console.log(person[i])
@@ -138,7 +138,7 @@ class AddressBook{
                 }
             }
             if(options=="2"){
-                let city=this.checkIfCityNameIsValid()//readLine.question("Enter city ")
+                let city=this.checkIfCityNameIsValid()//readLine.question("Enter city "))
                 for(let i=0;i<person.length;i++){
                     if(person[i].city==city){
                         console.log(person[i])
@@ -146,7 +146,7 @@ class AddressBook{
                 }
             }
             if(options=="3"){
-                let state=this.checkIfStateNameIsValid()//readLine.question("Enter state ")
+                let state=this.checkIfStateNameIsValid()//readLine.question("Enter state "))
                 for(let i=0;i<person.length;i++){
                     if(person[i].state==state){
                         console.log(person[i])
@@ -202,7 +202,6 @@ class AddressBook{
             }else{
                 console.log("invalid Zip Code")
                 return this.checkIfZipIsValid();
-                    
                 }
             }
         

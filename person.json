@@ -1,5 +1,12 @@
 [
   {
+    "firstName": "Sumit",
+    "lastName": "Twari",
+    "city": "Varanasi",
+    "state": "Banaras",
+    "zip": "770011"
+  },
+  {
     "firstName": "Adarsh",
     "lastName": "Chaudhary",
     "city": "Darbhanga",
@@ -10,8 +17,15 @@
     "firstName": "Rajas",
     "lastName": "Dongre",
     "city": "Mumbai",
-    "state": "Mahrashtra",
+    "state": "Maharashtra",
     "zip": "400092"
+  },
+  {
+    "firstName": "Saroj",
+    "lastName": "Dongre",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "zip": "400017"
   },
   {
     "firstName": "Shivam",
