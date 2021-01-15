@@ -1,19 +1,27 @@
 const fs = require('fs');
 let file = require('./person.json')
 const readLine=require('readline-sync')
+const name_pattern="^[A-Z]{1}[a-z]{2,}$";
+const zip_pattern="^[0-9]{6}$";
 class AddressBook{
     addPerson=()=>{
+        let firstName=this.checkIfFirstNameIsValid();
+        let lastName=this.checkIfLastNameIsValid();
+        let city=this.checkIfCityNameIsValid();
+        let state=this.checkIfStateNameIsValid();
+        let zip=this.checkIfZipIsValid();
         let person = {
             "person":[{
-                firstName: readLine.question("Enter firstname "),
-                lastName: readLine.question("Enter lastname "), 
-                city: readLine.question("Enter city "), 
-                state: readLine.question("Enter state "),  
-                zip: readLine.question("Enter zipcode ") 
+                firstName:firstName,//this.checkIfFirstNameIsValid(),
+                lastName:lastName, //this.checkIfLastNameIsValid(), 
+                city:city, //this.checkIfCityNameIsValid(), 
+                state:state, //this.checkIfStateNameIsValid(),  
+                zip: zip 
             }]
         };
             file = [person.person[0],...file];
             fs.writeFileSync('person.json',JSON.stringify(file,null,2));
+            
         }
         displayContacts=()=>{
             let rawdata = fs.readFileSync('person.json');
@@ -24,17 +32,34 @@ class AddressBook{
         editContats=()=>{
             let rawdata = fs.readFileSync('person.json');
             let person = JSON.parse(rawdata,JSON.stringify(file,null,2));
-            let firstname=readLine.question("Enter first name ")
+            let firstname=this.checkIfFirstNameIsValid()//readLine.question("Enter first name ")
             for(let i=0;i<person.length;i++){
                 if(person[i].firstName==firstname){
-                    person[i].lastName=readLine.question("enter last name ")
-                    fs.writeFileSync('person.json',JSON.stringify(person,null,2));
-                    person[i].city=readLine.question("enter city ")
-                    fs.writeFileSync('person.json',JSON.stringify(person,null,2));
-                    person[i].state=readLine.question("enter state ")
-                    fs.writeFileSync('person.json',JSON.stringify(person,null,2));
-                    person[i].zip=readLine.question("Enter zipode ") 
-                    fs.writeFileSync('person.json',JSON.stringify(person,null,2));
+                    console.log(person[i])
+                    console.log("edit 1.lastname 2.city 3.state 4.zipcode")
+                    let option=readLine.question("choose a option ")
+                    switch(option){
+                        case "1":
+                            person[i].lastName= this.checkIfLastNameIsValid()//readLine.question("enter last name ")
+                            fs.writeFileSync('person.json',JSON.stringify(person,null,2));
+                            break;
+                        case "2":
+                            person[i].city= this.checkIfCityNameIsValid()//readLine.question("enter city ")
+                            fs.writeFileSync('person.json',JSON.stringify(person,null,2));
+                            break;
+                        case "3":
+                            person[i].state= this.checkIfStateNameIsValid()//readLine.question("enter state ")
+                            fs.writeFileSync('person.json',JSON.stringify(person,null,2));
+                            break;
+                        case "4":
+                            person[i].zip=this.checkIfZipIsValid()//readLine.question("Enter zipode ") 
+                            fs.writeFileSync('person.json',JSON.stringify(person,null,2));
+                            break;
+                        default:
+                            console.log("invalid option")
+                            break;
+                    }
+                    console.log(person[i])
                 }
             }
         }
@@ -105,7 +130,7 @@ class AddressBook{
             console.log("find entries by 1.firstName 2.city 3.state 4.zip")
             let options=readLine.question("Enter your option ")
             if(options=="1"){
-                let firstName=readLine.question("Enter firstName ")
+                let firstName=this.checkIfFirstNameIsValid()//readLine.question("Enter firstName ")
                 for(let i=0;i<person.length;i++){
                     if(person[i].firstName==firstName){
                         console.log(person[i])
@@ -113,7 +138,7 @@ class AddressBook{
                 }
             }
             if(options=="2"){
-                let city=readLine.question("Enter city ")
+                let city=this.checkIfCityNameIsValid()//readLine.question("Enter city ")
                 for(let i=0;i<person.length;i++){
                     if(person[i].city==city){
                         console.log(person[i])
@@ -121,7 +146,7 @@ class AddressBook{
                 }
             }
             if(options=="3"){
-                let state=readLine.question("Enter state ")
+                let state=this.checkIfStateNameIsValid()//readLine.question("Enter state ")
                 for(let i=0;i<person.length;i++){
                     if(person[i].state==state){
                         console.log(person[i])
@@ -129,6 +154,58 @@ class AddressBook{
                 }
             }
         }  
+        checkIfFirstNameIsValid=()=>{
+            let name=readLine.question("Enter a first name ")
+            if(name.match(name_pattern)){
+                console.log("Valid Name")
+                return name;
+            }else{
+                console.log("Invaid Name")
+                return this.checkIfFirstNameIsValid()
+                }
+            }
+        checkIfLastNameIsValid=()=>{
+            let name=readLine.question("Enter a last name ")
+            if(name.match(name_pattern)){
+                console.log("Valid Name")
+                return name
+            }else{
+                console.log("Invaid Name")
+               return this.checkIfLastNameIsValid()
+                }    
+            }
+        checkIfCityNameIsValid=()=>{
+            let name=readLine.question("Enter a city name ")
+            if(name.match(name_pattern)){
+                console.log("Valid Name")
+                return name
+            }else{
+                console.log("Invaid Name")
+                return this.checkIfCityNameIsValid()
+                }       
+            }
+        checkIfStateNameIsValid=()=>{
+            let name=readLine.question("Enter a state name ")
+            if(name.match(name_pattern)){
+                console.log("Valid Name")
+                return name
+            }else{
+                console.log("Invaid Name")
+                return this.checkIfStateNameIsValid()
+                }       
+            }
+        checkIfZipIsValid=()=>{
+            let zip=readLine.question("Enter a Zip Code ")
+            if(zip.match(zip_pattern)){
+                console.log("valid Zip Code")
+                return zip;
+            }else{
+                console.log("invalid Zip Code")
+                return this.checkIfZipIsValid();
+                    
+                }
+            }
+        
     }
 module.exports=new AddressBook();
     

@@ -1,37 +1,23 @@
 [
   {
-    "firstName": "asfa",
-    "lastName": "faf",
-    "city": "mumbai",
-    "state": "ads",
-    "zip": "asf"
+    "firstName": "Adarsh",
+    "lastName": "Chaudhary",
+    "city": "Darbhanga",
+    "state": "Bihar",
+    "zip": "300081"
   },
   {
-    "firstName": "aakif",
-    "lastName": "sayed",
-    "city": "surat",
-    "state": "gujrat",
-    "zip": "900092"
-  },
-  {
-    "firstName": "adarsh",
-    "lastName": "chaudhary",
-    "city": "darbhanga",
-    "state": "bihar",
-    "zip": "400017"
-  },
-  {
-    "firstName": "rajas",
-    "lastName": "dongre",
-    "city": "mumbai",
-    "state": "maharashtra",
+    "firstName": "Rajas",
+    "lastName": "Dongre",
+    "city": "Mumbai",
+    "state": "Mahrashtra",
     "zip": "400092"
   },
   {
-    "firstName": "shivam",
-    "lastName": "pandey",
-    "city": "jaun pur",
-    "state": "uttarpradesh",
-    "zip": "400017"
+    "firstName": "Shivam",
+    "lastName": "Pandey",
+    "city": "Jaunpur",
+    "state": "Uttarpradesh",
+    "zip": "600012"
   }
 ]
